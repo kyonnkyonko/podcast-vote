@@ -31,7 +31,7 @@ const CONFIG = {
   // 一句話介紹節目
   tagline: "興趣使然的 Podcast 誕生",
   // 投票截止時間（台灣時間），留空 "" 代表不截止
-  deadline: "2026-11-11T23:59:59+08:00",
+  deadline: "2026-11-15T23:59:59+08:00",
   // Google Apps Script 部署後的網址。留空 "" = 測試模式（票只存在自己的瀏覽器）
   apiUrl: "https://script.google.com/macros/s/AKfycbwqPbZWbi9uDnH7FLNYvgaIu6loHj1ky7fXrUFxm01hqiOy7c3pi9yTmbA0TB7L_CxHxw/exec",
   // 候選名稱：name 是名字，desc 是一句說明（可留空）
@@ -339,7 +339,8 @@ button { font: inherit; cursor: pointer; }
 <script>
 const $ = (id) => document.getElementById(id);
 const MEDAL_CLASS = ["m1", "m2", "m3"];
-const storeKey = "podvote:" + (CONFIG.deadline || "open");
+// 固定用最初的截止日當名稱，延長截止時已投過的人才不會被當成沒投過
+const storeKey = "podvote:2026-11-11T23:59:59+08:00";
 const MOCK_KEY = "podvote-mock-rows";
 const isMock = !CONFIG.apiUrl;
 
